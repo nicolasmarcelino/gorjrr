@@ -1,0 +1,15 @@
+#wrapper {
+    /* flex properties */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compose {
+    /* flex properties */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#compose input {
+    margin:1px;
+}
