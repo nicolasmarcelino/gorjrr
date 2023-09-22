@@ -15,8 +15,8 @@
         </div>
         <div id="compose">
             <form action="post.php" method="POST" class="compose">
-                    <input type="text" placeholder="author" name="author">
-                    <input type="text" placeholder="message" name="message">
+                    <input type="text" minlength="1" maxlength="20" placeholder="author" name="author" required>
+                    <input type="text" minlength="1" maxlength="280" placeholder="message" name="message" required>
                     <input value="send" name="sent" type="submit">
             </form>
         </div>
