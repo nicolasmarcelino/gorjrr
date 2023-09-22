@@ -34,7 +34,7 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } else {
-                $sql = "SELECT author, post FROM posts";
+                $sql = "SELECT author, post FROM posts ORDER BY date DESC";
                 $result = $conn->query($sql);
                 $conn->close();
                 
