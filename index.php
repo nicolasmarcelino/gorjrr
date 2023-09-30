@@ -22,15 +22,7 @@
         </div>
         <div id="posts">
         <?php
-            $server = "localhost";
-            $username = "root";       // Default username for XAMPP is 'root'
-            $password = "";           // Default password for XAMPP is empty
-            $dbname = "test";
-
-            // Create connection
-            $conn = new mysqli($server, $username, $password, $dbname);
-
-            // Check connection
+            include_once('conn.php');
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } else {

@@ -1,6 +1,6 @@
 <?php
 
-include_once 'database.php';
+include_once 'conn.php';
 
 if(isset($_POST['sent']))
 {	 
