@@ -23,22 +23,19 @@
         <div id="posts">
         <?php
             include_once('conn.php');
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } else {
-                $sql = "SELECT author, post FROM posts ORDER BY date DESC";
-                $result = $conn->query($sql);
-                $conn->close();
-                
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo '<div class="post">' . '<p class="author">'.$row["author"].'</p>'.'<p class="message">'.$row["post"].'</p>'.'</div>';
-                    }
-                } else {
-                    echo '<div class="error">0 results<div>';
+            $sql = "SELECT author, post FROM posts ORDER BY date DESC LIMIT 3 OFFSET 0";
+            $result = $conn->query($sql);
+            $conn->close();
+    
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<div class="post">' . '<p class="author">'.$row["author"].'</p>'.'<p class="message">'.$row["post"].'</p>'.'</div>';
                 }
+            } else {
+                echo '<div class="error">0 results<div>';
             }
+
 ?>
         </div>
     </div>
