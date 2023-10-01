@@ -34,7 +34,7 @@
             $offset = ($currentPage - 1) * $itemsPerPage;
 
             // SQL query to fetch desired data
-            $sql = "SELECT author, post FROM posts ORDER BY date DESC LIMIT $itemsPerPage OFFSET $offset";
+            $sql = "SELECT author, post, date FROM posts ORDER BY date DESC LIMIT $itemsPerPage OFFSET $offset";
 
             $result = $conn->query($sql);
             $conn->close();
@@ -42,7 +42,7 @@
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo '<div class="post">' . '<p class="author">'.$row["author"].'</p>'.'<p class="message">'.$row["post"].'</p>'.'</div>';
+                    echo '<div class="post">' .'<div class="infos">'.'<p class="author">'.$row["author"].'</p>'.'<p class="date">'.$row["date"].'</p>'.'</div>'.'<p class="message">'.$row["post"].'</p>'.'</div>';
                 }
             } else {
                 echo '<div class="error">0 results<div>';

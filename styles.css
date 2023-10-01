@@ -10,9 +10,30 @@
     flex-direction: column;
     align-items: center;
 }
-.post{
-    max-width: 350px;
-}
 #compose input {
     margin:1px;
+}
+.post{
+    max-width: 350px;
+    margin-top: 5%;
+    padding:1%;
+}
+.infos {
+    color:#71767b;
+    display: flex;
+    justify-content:space-between;
+}
+.author{
+    margin: 0;
+    font-size:medium;
+}
+.date {
+    font-size:x-small;
+    margin:0;
+    flex-shrink: 0;
+}
+.message{
+    font-size:larger;
+    margin:0;
+    word-wrap: break-word;
 }
