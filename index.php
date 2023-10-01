@@ -23,14 +23,13 @@
         <div id="posts">
         <?php
             include_once('conn.php');
-            $total_query = "SELECT COUNT(id) AS total FROM posts";
-            $total_execute = $conn->query($total_query);
-            $total_return = $total_execute->fetch_assoc();
+            $countQuery = "SELECT COUNT(id) AS totalCount FROM posts";
+            $countResult = $conn->query($countQuery);
+            $countData = $countResult->fetch_assoc();
 
-            // where the fun begins
-            $totalUsers = $total_return['total'];
+            $totalPosts = $countData['totalCount'];
             $itemsPerPage = 5;
-            $totalPages = ceil($totalUsers / $itemsPerPage);
+            $totalPages = ceil($totalPosts / $itemsPerPage);
             $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;  // default to page 1
             $offset = ($currentPage - 1) * $itemsPerPage;
 
