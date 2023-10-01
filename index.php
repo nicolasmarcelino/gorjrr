@@ -23,7 +23,20 @@
         <div id="posts">
         <?php
             include_once('conn.php');
-            $sql = "SELECT author, post FROM posts ORDER BY date DESC LIMIT 3 OFFSET 0";
+            $total_query = "SELECT COUNT(id) AS total FROM posts";
+            $total_execute = $conn->query($total_query);
+            $total_return = $total_execute->fetch_assoc();
+
+            // where the fun begins
+            $totalUsers = $total_return['total'];
+            $itemsPerPage = 5;
+            $totalPages = ceil($totalUsers / $itemsPerPage);
+            $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;  // default to page 1
+            $offset = ($currentPage - 1) * $itemsPerPage;
+
+            // SQL query to fetch desired data
+            $sql = "SELECT author, post FROM posts ORDER BY date DESC LIMIT $itemsPerPage OFFSET $offset";
+
             $result = $conn->query($sql);
             $conn->close();
     
@@ -38,10 +51,19 @@
 
 ?>
         </div>
+        <div>
+        <?php
+            for ($i = 1; $i <= $totalPages; $i++) {
+                if ($i == $currentPage) {
+                    echo $i;  // Current page, don't make it a link
+                } else {
+                    echo "  <a href='?page=$i'>$i</a>  ";
+                }
+            }
+        ?>
+
+        </div>
     </div>
-
-
-
 </body>
 
 </html>
