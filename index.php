@@ -13,11 +13,10 @@
         <div id="header">
             <h1>gorjrr</h1>
         </div>
-        <div id="compose">
+        <div>
             <form action="post.php" method="POST" class="compose">
-                    <input type="text" minlength="1" maxlength="20" placeholder="author" name="author" required>
-                    <input type="text" minlength="1" maxlength="280" placeholder="message" name="message" required>
-                    <input value="send" name="sent" type="submit">
+                <input type="text" size="20" minlength="1" maxlength="20" placeholder="author" name="author" required>
+                <textarea type="text" cols="35" rows="8" spellcheck="false" minlength="1" maxlength="280" placeholder="message" name="message" required></textarea>                <input value="send" name="sent" type="submit">
             </form>
         </div>
         <div id="posts">

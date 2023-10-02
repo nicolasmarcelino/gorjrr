@@ -10,9 +10,19 @@
     flex-direction: column;
     align-items: center;
 }
-#compose input {
-    margin:1px;
+.compose input {
+    margin:1%;
 }
+
+textarea[name="message"] {
+    font-family: sans-serif;
+    resize: none;
+}
+
+textarea[name="message"]::placeholder {
+    font-family:sans-serif;
+}
+
 .post{
     max-width: 350px;
     margin-top: 5%;
