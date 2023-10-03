@@ -16,7 +16,8 @@
         <div>
             <form action="post.php" method="POST" class="compose">
                 <input type="text" size="20" minlength="1" maxlength="20" placeholder="author" name="author" required>
-                <textarea type="text" cols="35" rows="8" spellcheck="false" minlength="1" maxlength="280" placeholder="message" name="message" required></textarea>                <input value="send" name="sent" type="submit">
+                <textarea type="text" cols="35" rows="8" spellcheck="false" minlength="1" maxlength="280" placeholder="message" name="message" required></textarea>
+                <input value="send" name="sent" type="submit">
             </form>
         </div>
         <div id="posts">
@@ -59,9 +60,9 @@
                 }
             }
         ?>
-
         </div>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
