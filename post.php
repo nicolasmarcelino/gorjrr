@@ -15,14 +15,14 @@ if(isset($_POST['sent']))
 		{
 			echo "Your message cannot be empty or exceed 280 characters.";
 		} else {
-			$sql = "INSERT INTO posts (id, author, date, post)
+			$sql_insert_post = "INSERT INTO posts (id, author, date, post)
 			VALUES (NULL,'$author',current_timestamp(),'$message')";
-			if (mysqli_query($conn, $sql)) {
+			if (mysqli_query($conn, $sql_insert_post)) {
 				mysqli_close($conn);
 				header("Location: /gorjrr/");
 				exit;
 			} else {
-				echo "Error: " . $sql . "
+				echo "Error: " . $sql_insert_post . "
 		" . mysqli_error($conn);
 				mysqli_close($conn);
 			}
