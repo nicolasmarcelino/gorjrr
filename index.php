@@ -25,9 +25,8 @@
             include_once('conn.php');
             include_once('pagination.php');
             include_once('getPosts.php');
-            
+
             if ($result->num_rows > 0) {
-                // Output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo '<div class="post">' .'<div class="infos">'.'<p class="author">'.$row["author"].'</p>'.'<p class="date">'.$row["date"].'</p>'.'</div>'.'<p class="message">'.$row["post"].'</p>'.'</div>';
                 }
