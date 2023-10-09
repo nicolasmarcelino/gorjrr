@@ -23,22 +23,9 @@
         <div id="posts">
         <?php
             include_once('conn.php');
-            $countQuery = "SELECT COUNT(id) AS totalCount FROM posts";
-            $countResult = $conn->query($countQuery);
-            $countData = $countResult->fetch_assoc();
-
-            $totalPosts = $countData['totalCount'];
-            $itemsPerPage = 5;
-            $totalPages = ceil($totalPosts / $itemsPerPage);
-            $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;  // default to page 1
-            $offset = ($currentPage - 1) * $itemsPerPage;
-
-            // SQL query to fetch desired data
-            $sql = "SELECT author, post, date FROM posts ORDER BY date DESC LIMIT $itemsPerPage OFFSET $offset";
-
-            $result = $conn->query($sql);
-            $conn->close();
-    
+            include_once('pagination.php');
+            include_once('getPosts.php');
+            
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
