@@ -1,11 +1,8 @@
 <?php
-$server = "localhost";
-$user = "root";       // Default username for XAMPP is 'root'
-$password = "";           // Default password for XAMPP is empty
-$db = "test";
+$configContent = file_get_contents('../config/dbconfig.json');
+$config = json_decode($configContent, true);
 
-// Create connection
-$conn = new mysqli($server, $user, $password, $db);
+$conn = new mysqli($config['server'], $config['user'], $config['password'], $config['database']);
 
 // Check connection
 if ($conn->connect_error) {
